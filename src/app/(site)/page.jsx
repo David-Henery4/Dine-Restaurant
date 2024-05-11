@@ -1,9 +1,9 @@
-
+import ButtonPrimary from "@/components/shared/buttons/ButtonPrimary";
 
 export default function Home() {
   return (
     <main>
-      hello
+      <ButtonPrimary variant="secondary">BOOK A TABLE</ButtonPrimary>
     </main>
   );
 }
