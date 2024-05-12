@@ -1,5 +1,6 @@
 import "../globals.css";
 import { leagueSpartan } from "@/fonts/fonts";
+import { Footer } from "@/sections";
 
 export const metadata = {
   title: "Create Next App",
@@ -9,7 +10,10 @@ export const metadata = {
 export default function RootLayout({ children }) {
   return (
     <html lang="en" className={`${leagueSpartan.variable} scroll-smooth`}>
-      <body className="font-leagueSpartan">{children}</body>
+      <body className="font-leagueSpartan">
+        {children}
+        <Footer />
+      </body>
     </html>
   );
 }

@@ -1,16 +1,13 @@
-import BodyText from "@/components/shared/body-text/BodyText";
-import Heading from "@/components/shared/headings/Heading";
+import { Header, About, Cta, Menu, Services } from "@/sections";
 
 export default function Home() {
   return (
-    <main>
-      <Heading headingType="xl" className="text-[32px]">
-        Exquisite dining since 1989
-      </Heading>
-      {/**/}
-      <BodyText theme="light">
-        Hello cuwecu cuedc cjwucjcc cjecjwo jcjjcjwecwecu cueu je djweojew.
-      </BodyText>
+    <main className="w-full grid grid-cols-mob">
+      <Header/>
+      <About/>
+      <Menu/>
+      <Services/>
+      <Cta/>
     </main>
   );
 }
