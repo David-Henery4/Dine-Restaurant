@@ -9,7 +9,7 @@ export const metadata = {
 export default function RootLayout({ children }) {
   return (
     <html lang="en" className={`${leagueSpartan.variable} scroll-smooth`}>
-      <body className="font-leagueSpartan ">{children}</body>
+      <body className="font-leagueSpartan">{children}</body>
     </html>
   );
 }

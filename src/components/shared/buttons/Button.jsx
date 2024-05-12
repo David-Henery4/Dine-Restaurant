@@ -1,7 +1,7 @@
 import { cva } from "class-variance-authority";
 import { cn } from "@/libs/utils";
 
-const ButtonPrimary = ({variant,className, ...props}) => {
+const Button = ({variant,className, ...props}) => {
   return <button className={cn(buttonVariants({ variant }), className)} {...props} />;
 };
 
@@ -19,4 +19,4 @@ const buttonVariants = cva("px-14 py-6 font-semibold border", {
   },
 });
 
-export default ButtonPrimary;
+export default Button;
