@@ -14,13 +14,10 @@ const Header = () => {
         >
           <Logo />
         </Link>
-
-        <HeaderText/>
-
+        <HeaderText />
         <div className="mt-14">
-          <Button>BOOK A TABLE</Button>
+          <Button className="tracking-[2.5px]">BOOK A TABLE</Button>
         </div>
-
       </div>
     </header>
   );

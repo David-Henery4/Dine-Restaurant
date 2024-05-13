@@ -3,7 +3,7 @@ import { cn } from "@/libs/utils";
 
 const BodyText = ({className, size, theme, ...props}) => {
   return (
-    <p className={cn(textVariants({size, theme}))} {...props}/>
+    <p className={cn(textVariants({size, theme}), className)} {...props}/>
   )
 }
 
