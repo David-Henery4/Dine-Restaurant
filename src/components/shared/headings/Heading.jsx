@@ -1,13 +1,13 @@
 import { cva } from "class-variance-authority";
 import { cn } from "@/libs/utils";
 
-const Heading = ({ className, headingType, ...props }) => {
+const Heading = ({ className, headingType, theme, ...props }) => {
 
   // sm
   if (headingType === "sm")
     return (
       <h4
-        className={cn(headingVariants({ headingType }), className)}
+        className={cn(headingVariants({ headingType, theme }), className)}
         {...props}
       />
     );
@@ -16,7 +16,7 @@ const Heading = ({ className, headingType, ...props }) => {
   if (headingType === "md")
     return (
       <h3
-        className={cn(headingVariants({ headingType }), className)}
+        className={cn(headingVariants({ headingType, theme }), className)}
         {...props}
       />
     );
@@ -25,7 +25,7 @@ const Heading = ({ className, headingType, ...props }) => {
   if (headingType === "lg")
     return (
       <h2
-        className={cn(headingVariants({ headingType }), className)}
+        className={cn(headingVariants({ headingType, theme }), className)}
         {...props}
       />
     );
@@ -33,7 +33,7 @@ const Heading = ({ className, headingType, ...props }) => {
   // xl
   return (
     <h1
-      className={cn(headingVariants({ headingType }), className)}
+      className={cn(headingVariants({ headingType, theme }), className)}
       {...props}
     />
   );

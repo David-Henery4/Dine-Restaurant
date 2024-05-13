@@ -1,11 +1,19 @@
 import { cva } from "class-variance-authority";
 import { cn } from "@/libs/utils";
+import Link from "next/link";
 
-const Button = ({variant,className, ...props}) => {
-  return <button className={cn(buttonVariants({ variant }), className)} {...props} />;
+const Button = ({variant,className,href = "booking", ...props}) => {
+  return (
+    <Link
+      href={href}
+      className={cn(buttonVariants({ variant }), className)}
+      {...props}
+      title="Call to action button, which leads to the booking page"
+    />
+  );
 };
 
-const buttonVariants = cva("px-14 py-6 font-semibold border", {
+const buttonVariants = cva("px-14 py-6 font-semibold border inline-block", {
   variants: {
     variant: {
       primary:

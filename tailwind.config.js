@@ -7,6 +7,11 @@ module.exports = {
     "./src/app/**/*.{js,ts,jsx,tsx,mdx}",
   ],
   theme: {
+    backgroundImage: {
+      "hero-image-mob": "url('/images/homepage/mobile/hero-bg-mobile.jpg')",
+      "hero-image-mob-lg":
+        "url('/images/homepage/mobile/hero-bg-mobile@2x.jpg')",
+    },
     gridTemplateColumns: {
       mob: "24px repeat(10,1fr) 24px",
       tab: "40px repeat(10,1fr) 40px",
@@ -30,9 +35,7 @@ module.exports = {
       ebonyClay: "#242b37",
       shuttleGray: "#5c6779",
     },
-    extend: {
-      
-    },
+    extend: {},
   },
   plugins: [],
 };
