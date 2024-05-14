@@ -8,6 +8,7 @@ const CardImg = ({ img }) => {
         src={img}
         width={660}
         height={800}
+        className="w-auto h-auto"
         alt="The farm and relaxed surroundings in the country side where the restaurant is located."
       />
     </div>
