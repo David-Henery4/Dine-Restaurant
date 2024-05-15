@@ -5,7 +5,7 @@ import HeaderText from "@/components/header/HeaderText";
 
 const Header = () => {
   return (
-    <header className="w-full col-start-1 col-end-13 bg-hero-image-mob bg-cover bg-center grid grid-cols-mob pt-[232px] pb-[152px]">
+    <header className="w-full col-start-1 col-end-13 bg-heroImageMob bg-cover bg-center grid grid-cols-mob pt-[232px] pb-[152px] mob:bg-heroImageMobLg lgMob:grid-cols-tab">
       <div className="col-start-2 col-end-12 flex flex-col justify-center items-center text-center">
         <Link
           href="/"

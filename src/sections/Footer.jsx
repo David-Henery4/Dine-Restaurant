@@ -4,8 +4,8 @@ import { LocationDetails, OpenTimesDetails } from "@/components/footer";
 
 const Footer = () => {
   return (
-    <footer className="w-full px-6 pt-20 pb-16 bg-codGray grid grid-cols-mob">
-      <div className="w-full col-start-2 col-end-12 flex flex-col justify-center items-center gap-11">
+    <footer className="w-full px-6 pt-20 pb-16 bg-codGray lgMob:px-10">
+      <div className="w-full flex flex-col justify-center items-center gap-11">
         <div>
           <Link
             href="/"

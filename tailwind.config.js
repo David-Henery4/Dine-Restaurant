@@ -7,17 +7,29 @@ module.exports = {
     "./src/app/**/*.{js,ts,jsx,tsx,mdx}",
   ],
   theme: {
+    screens: {
+      mob: "23.43em", // 375px
+      lgMob: "27.5em", // 440px
+    },
     backgroundImage: {
-      "hero-image-mob": "url('/images/homepage/mobile/hero-bg-mobile.jpg')",
-      "hero-image-mob-lg":
-        "url('/images/homepage/mobile/hero-bg-mobile@2x.jpg')",
+      // Hero Images
+      heroImageMob: "url('/images/homepage/mobile/hero-bg-mobile.jpg')",
+      heroImageMobLg: "url('/images/homepage/mobile/hero-bg-mobile@2x.jpg')",
       //
+      heroImageTab: "url('/images/homepage/tablet/hero-bg-tablet.jpg')",
+      heroImageTabLg: "url('/images/homepage/tablet/hero-bg-tablet@2x.jpg')",
+      //
+      heroImageDesk: "url('/images/homepage/desktop/hero-bg-desktop.jpg')",
+      heroImageDeskLg: "url('/images/homepage/desktop/hero-bg-desktop@2x.jpg')",
+
+      // Call to Action Images
       ctaBgImageMob: "url('/images/homepage/mobile/ready-bg-mobile.jpg')",
       ctaBgImageMobLg: "url('/images/homepage/mobile/ready-bg-mobile@2x.jpg')",
     },
     gridTemplateColumns: {
       mob: "24px repeat(10,1fr) 24px",
       tab: "40px repeat(10,1fr) 40px",
+      lap: "102.5px repeat(10,1fr) 102.5px",
       desk: "165px repeat(10,1fr) 165px",
     },
     fontFamily: {

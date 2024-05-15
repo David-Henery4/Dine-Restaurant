@@ -6,7 +6,7 @@ const MenuCardText = ({ title, description }) => {
       <Heading headingType="md" theme="dark">
         {title}
       </Heading>
-      <BodyText className="mt-2">
+      <BodyText className="mt-2 lgMob:text-base">
         {description}
       </BodyText>
     </div>

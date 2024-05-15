@@ -14,8 +14,7 @@ const textVariants = cva("font-normal", {
       dark: "text-white",
     },
     size: {
-      medium: "text-base leading-[26px]",
-      large: "text-xl leading-[30px]",
+      medium: "text-base leading-[26px] lgMob:text-xl lgMob:leading-[30px]",
     },
   },
   defaultVariants: {
