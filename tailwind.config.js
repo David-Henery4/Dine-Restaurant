@@ -11,6 +11,9 @@ module.exports = {
       "hero-image-mob": "url('/images/homepage/mobile/hero-bg-mobile.jpg')",
       "hero-image-mob-lg":
         "url('/images/homepage/mobile/hero-bg-mobile@2x.jpg')",
+      //
+      ctaBgImageMob: "url('/images/homepage/mobile/ready-bg-mobile.jpg')",
+      ctaBgImageMobLg: "url('/images/homepage/mobile/ready-bg-mobile@2x.jpg')",
     },
     gridTemplateColumns: {
       mob: "24px repeat(10,1fr) 24px",
