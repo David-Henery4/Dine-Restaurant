@@ -10,6 +10,8 @@ module.exports = {
     screens: {
       mob: "23.43em", // 375px
       lgMob: "27.5em", // 440px
+      xtraSmTab: "35em", // 560px
+      smTab: "41.25em", // 660px
     },
     backgroundImage: {
       // Hero Images

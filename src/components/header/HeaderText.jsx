@@ -10,7 +10,7 @@ const HeaderText = () => {
       >
         Exquisite dining since 1989
       </Heading>
-      <BodyText>
+      <BodyText className="xtraSmTab:max-w-[573px]">
         Experience our seasonal menu in beautiful country surroundings. Eat the
         freshest produce from the comfort of our farmhouse.
       </BodyText>

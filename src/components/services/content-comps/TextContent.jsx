@@ -9,7 +9,7 @@ const TextContent = () => {
       >
         Family Gathering
       </Heading>
-      <BodyText theme="light" className="mt-3">
+      <BodyText theme="light" className="mt-3 lgMob:mt-5">
         We love catering for entire families. So please bring everyone along for
         a special meal with your loved ones. We’ll provide a memorable
         experience for all.

@@ -6,7 +6,7 @@ const CardText = ({ title, description }) => {
       <Heading headingType="lg" className="text-[32px] leading-10">
         {title}
       </Heading>
-      <BodyText theme="light" className="mt-3">
+      <BodyText theme="light" className="mt-3 lgMob:mt-7">
         {description}
       </BodyText>
     </div>

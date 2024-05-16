@@ -11,7 +11,7 @@ import MenuChocolate2 from "/public/images/homepage/mobile/chocolate-mobile@2x.j
 
 const MenuCardContainer = () => {
   return (
-    <div className="flex flex-col justify-center items-center gap-14">
+    <div className="flex flex-col justify-center items-center gap-14 lgMob:gap-12">
       <MenuCard
         title="Seared Salmon Fillet"
         description="Our locally sourced salmon served with a refreshing buckwheat summer salad."

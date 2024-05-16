@@ -4,7 +4,7 @@ import AboutCardImg2 from "/public/images/homepage/mobile/locally-sourced-mobile
 
 const About = () => {
   return (
-    <section className="w-full col-start-2 col-end-12 grid gap-[101px] pb-[101px] -mt-[72px]">
+    <section className="w-full col-start-2 col-end-12 grid gap-[101px] pb-[101px] -mt-[72px] lgMob:-mt-24 lgMob:pb-[118px]">
       <AboutCard
         title="Enjoyable place for all the family"
         description="Our relaxed surroundings make dining with us a great experience for everyone. We can even arrange a tour of the farm before your meal."

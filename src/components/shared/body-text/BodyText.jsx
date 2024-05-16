@@ -7,7 +7,7 @@ const BodyText = ({className, size, theme, ...props}) => {
   )
 }
 
-const textVariants = cva("font-normal", {
+const textVariants = cva("font-normal max-w-[445px] mx-auto", {
   variants: {
     theme: {
       light: "text-ebonyClay",
