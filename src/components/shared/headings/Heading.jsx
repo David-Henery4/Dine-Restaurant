@@ -44,7 +44,7 @@ const headingVariants = cva("", {
     headingType: {
       sm: "font-semibold text-[17px] leading-7 tracking-[2.5px]",
       md: "font-bold text-xl leading-6 -tracking-[0.25px]",
-      lg: "font-bold -tracking-[0.4px] text-[32px] leading-10 lgMob:text-5xl lgMob:leading-[48px] lgMob:-tracking-[0.5px]",
+      lg: "font-bold -tracking-[0.4px] text-[32px] leading-10 max-w-[445px] mx-auto lgMob:text-5xl lgMob:leading-[48px] lgMob:-tracking-[0.5px]",
       xl: "font-light text-[80px] leading-[80px] -tracking-[1px]",
     },
     theme: {

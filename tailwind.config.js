@@ -25,8 +25,8 @@ module.exports = {
       heroImageDeskLg: "url('/images/homepage/desktop/hero-bg-desktop@2x.jpg')",
 
       // Call to Action Images
-      ctaBgImageMob: "url('/images/homepage/mobile/ready-bg-mobile.jpg')",
       ctaBgImageMobLg: "url('/images/homepage/mobile/ready-bg-mobile@2x.jpg')",
+      ctaBgImageTabLg: "url('/images/homepage/tablet/ready-bg-tablet@2x.jpg')",
     },
     gridTemplateColumns: {
       mob: "24px repeat(10,1fr) 24px",

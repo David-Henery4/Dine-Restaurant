@@ -2,7 +2,7 @@ import { Heading } from "@/components/shared";
 
 const TabsContainer = () => {
   return (
-    <menu className="w-full flex flex-col justify-center items-center gap-4">
+    <menu className="w-full flex flex-col justify-center items-center gap-4 smTab:flex-row smTab:justify-evenly">
       <li
         className="relative hover:cursor-pointer hover:scale-105"
         title="tab button for image slider"

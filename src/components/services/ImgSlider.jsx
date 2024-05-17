@@ -2,7 +2,7 @@ import Image, { getImageProps } from "next/image";
 import SlideImg1 from "/public/images/homepage/mobile/family-gathering-mobile.jpg";
 import SlideImg2 from "/public/images/homepage/mobile/family-gathering-mobile@2x.jpg";
 //
-import SlideImg1Tab from "/public/images/homepage/tablet/family-gathering-tablet.jpg";
+import SlideImg2Tab from "/public/images/homepage/tablet/family-gathering-tablet@2x.jpg";
 
 const ImgSlider = () => {
   const defaultProps = { alt: "family-gathering" };
@@ -10,7 +10,7 @@ const ImgSlider = () => {
     props: { srcSet: tablet },
   } = getImageProps({
     ...defaultProps,
-    src: SlideImg1Tab,
+    src: SlideImg2Tab,
     width: 1146,
     height: 720,
   });
@@ -26,9 +26,12 @@ const ImgSlider = () => {
   return (
     <div className="w-full">
       <picture>
-        {/* <source media="(min-width: 380px)" srcSet={tablet} /> */}
+        <source media="(min-width: 560px)" srcSet={tablet} />
         <source media="(min-width: 320px)" srcSet={mobile} />
-        <img {...rest} style={{ width: "100%", height: "auto" }} />
+        <img
+          {...rest}
+          className="w-full h-auto object-cover object-center max-w-96 mx-auto max-h-[469px] xtraSmTab:max-h-[360px] xtraSmTab:max-w-[573px]"
+        />
       </picture>
       {/* <div>
         <Image
