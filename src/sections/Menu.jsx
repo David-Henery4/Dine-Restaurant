@@ -3,7 +3,7 @@ import MenuCardContainer from "@/components/menu/MenuCardContainer";
 
 const Menu = () => {
   return (
-    <section className="w-full col-start-1 col-end-13 pt-[72px] pb-[102px] bg-codGray grid grid-cols-mob lgMob:grid-cols-tab lgMob:py-24">
+    <section className="w-full col-start-1 col-end-13 pt-[72px] pb-[102px] bg-codGray grid grid-cols-mob lgMob:grid-cols-tab lgMob:py-24 smLap:grid-cols-lap">
       <div className="w-full col-start-2 col-end-12 flex flex-col justify-center items-center gap-[85px] lgMob:gap-14 smTab:col-start-3 smTab:col-end-11">
 
         <div className="text-center">
