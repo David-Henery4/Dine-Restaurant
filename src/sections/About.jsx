@@ -17,7 +17,7 @@ import handleImgs from "@/helpers/imgArtDirectionSort";
 const About = () => {
   //
   return (
-    <section className="w-full col-start-2 col-end-12 grid gap-[101px] pb-[101px] -mt-[72px] lgMob:-mt-24 lgMob:pb-[118px]">
+    <section className="w-full col-start-2 col-end-12 grid gap-[101px] pb-[101px] -mt-[72px] lgMob:-mt-24 lgMob:pb-[118px] lap:-my-[38px] lap:p-0 lap:z-10 lgLap:-my-[70px] lgLap:gap-[121px]">
       <AboutCard
         title="Enjoyable place for all the family"
         description="Our relaxed surroundings make dining with us a great experience for everyone. We can even arrange a tour of the farm before your meal."

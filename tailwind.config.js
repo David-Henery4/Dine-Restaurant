@@ -13,6 +13,8 @@ module.exports = {
       xtraSmTab: "35em", // 560px
       smTab: "41.25em", // 660px
       smLap: "53.75em", // 860px
+      lap: "57.5em", // 920px
+      lgLap: "66.25em", // 1060px
     },
     backgroundImage: {
       // Hero Images

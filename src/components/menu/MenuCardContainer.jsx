@@ -4,7 +4,7 @@ import { salmonDeskTab2, beefDeskTab2, chocolateDeskTab2 } from "../../../public
 
 const MenuCardContainer = () => {
   return (
-    <div className="w-full flex flex-col justify-center items-center gap-14 lgMob:gap-12">
+    <div className="w-full flex flex-col justify-center items-center gap-14 lgMob:gap-12 lgLap:flex-[3]">
       <MenuCard
         title="Seared Salmon Fillet"
         description="Our locally sourced salmon served with a refreshing buckwheat summer salad."
