@@ -2,7 +2,7 @@ import { BodyText, Heading } from "@/components/shared";
 
 const TextContent = () => {
   return (
-    <div className="text-center">
+    <div className="text-center lgLap:text-left">
       <Heading
         headingType="lg"
         className="text-[32px] leading-10 -tracking-[0.4px]"

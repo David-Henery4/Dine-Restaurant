@@ -3,9 +3,18 @@ import SlideImg1 from "/public/images/homepage/mobile/family-gathering-mobile.jp
 import SlideImg2 from "/public/images/homepage/mobile/family-gathering-mobile@2x.jpg";
 //
 import SlideImg2Tab from "/public/images/homepage/tablet/family-gathering-tablet@2x.jpg";
+import SlideImg2Desk from "/public/images/homepage/desktop/family-gathering-desktop@2x.jpg";
 
 const ImgSlider = () => {
   const defaultProps = { alt: "family-gathering" };
+  const {
+    props: { srcSet: desktop },
+  } = getImageProps({
+    ...defaultProps,
+    src: SlideImg2Desk,
+    width: 1100,
+    height: 1220,
+  });
   const {
     props: { srcSet: tablet },
   } = getImageProps({
@@ -24,13 +33,14 @@ const ImgSlider = () => {
   });
   //
   return (
-    <div className="w-full">
+    <div className="w-full max-w-96 mx-auto max-h-[469px] xtraSmTab:max-h-[360px] xtraSmTab:max-w-[573px] lgLap:h-[600px] lgLap:max-w-[475px] lgLap:max-h-none">
       <picture>
+        <source media="(min-width: 1060px)" srcSet={desktop} />
         <source media="(min-width: 560px)" srcSet={tablet} />
         <source media="(min-width: 320px)" srcSet={mobile} />
         <img
           {...rest}
-          className="w-full h-auto object-cover object-center max-w-96 mx-auto max-h-[469px] xtraSmTab:max-h-[360px] xtraSmTab:max-w-[573px]"
+          className="w-full h-auto object-cover object-center lgLap:h-full"
         />
       </picture>
       {/* <div>
