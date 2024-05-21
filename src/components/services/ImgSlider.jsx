@@ -33,7 +33,7 @@ const ImgSlider = () => {
   });
   //
   return (
-    <div className="w-full max-w-96 mx-auto max-h-[469px] xtraSmTab:max-h-[360px] xtraSmTab:max-w-[573px] lgLap:h-[600px] lgLap:max-w-[475px] lgLap:max-h-none">
+    <div className="w-full max-w-96 mx-auto max-h-[469px] xtraSmTab:max-h-[360px] xtraSmTab:max-w-[573px] lgLap:h-[600px] lgLap:max-w-none lgLap:max-h-none lgLap:col-start-1 lgLap:col-end-7">
       <picture>
         <source media="(min-width: 1060px)" srcSet={desktop} />
         <source media="(min-width: 560px)" srcSet={tablet} />

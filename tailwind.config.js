@@ -32,7 +32,7 @@ module.exports = {
       ctaBgImageTabLg: "url('/images/homepage/tablet/ready-bg-tablet@2x.jpg')",
     },
     gridTemplateColumns: {
-      servicesSliderCols: "auto 1fr",
+      servicesSliderCols: "repeat(12,1fr)",
       mob: "24px repeat(10,1fr) 24px",
       tab: "40px repeat(10,1fr) 40px",
       lap: "102.5px repeat(10,1fr) 102.5px",
