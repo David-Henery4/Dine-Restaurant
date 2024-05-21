@@ -15,6 +15,8 @@ module.exports = {
       smLap: "53.75em", // 860px
       lap: "57.5em", // 920px
       lgLap: "66.25em", // 1060px
+      desk: "75em", // 1200px
+      lgDesk: "81.25em", // 1300px
     },
     backgroundImage: {
       // Hero Images
@@ -30,6 +32,8 @@ module.exports = {
       // Call to Action Images
       ctaBgImageMobLg: "url('/images/homepage/mobile/ready-bg-mobile@2x.jpg')",
       ctaBgImageTabLg: "url('/images/homepage/tablet/ready-bg-tablet@2x.jpg')",
+      ctaBgImageDeskLg:
+        "url('/images/homepage/desktop/ready-bg-desktop@2x.jpg')",
     },
     gridTemplateColumns: {
       servicesSliderCols: "repeat(12,1fr)",
@@ -56,7 +60,11 @@ module.exports = {
       ebonyClay: "#242b37",
       shuttleGray: "#5c6779",
     },
-    extend: {},
+    extend: {
+      maxWidth: {
+        maxContentWidth: "1110px",
+      },
+    },
   },
   plugins: [],
 };
