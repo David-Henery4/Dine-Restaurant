@@ -34,6 +34,11 @@ module.exports = {
       ctaBgImageTabLg: "url('/images/homepage/tablet/ready-bg-tablet@2x.jpg')",
       ctaBgImageDeskLg:
         "url('/images/homepage/desktop/ready-bg-desktop@2x.jpg')",
+
+      // Booking Page Hero
+      bookingHeroMobLg: "url('/images/booking/hero-bg-mobile@2x.jpg')",
+      bookingHeroTabLg: "url('/images/booking/hero-bg-tablet@2x.jpg')",
+      bookingHeroDeskLg: "url('/images/booking/hero-bg-desktop@2x.jpg')",
     },
     gridTemplateColumns: {
       servicesSliderCols: "repeat(12,1fr)",
@@ -41,6 +46,9 @@ module.exports = {
       tab: "40px repeat(10,1fr) 40px",
       lap: "102.5px repeat(10,1fr) 102.5px",
       desk: "165px repeat(10,1fr) 165px",
+    },
+    gridTemplateRows: {
+      bookingPageRows: "600px 1fr",
     },
     fontFamily: {
       leagueSpartan: ["var(--font-leagueSpartan)"],
@@ -55,6 +63,7 @@ module.exports = {
       // Primary
       beaver: "#9e7f66",
       codGray: "#111111",
+      lightGray: "#8E8E8E",
       // Secondary
       mirage: "#17192b",
       ebonyClay: "#242b37",
