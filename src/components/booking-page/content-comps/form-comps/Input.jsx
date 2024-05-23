@@ -3,7 +3,7 @@
 const Input = ({ label, type }) => {
   return (
     <div className="w-full relative border-b border-lightGray text-xl font-normal">
-      <label className="text-codGray/50 absolute top-4 left-4 -translate-y-1" htmlFor={type}>
+      <label className="text-codGray/50 absolute top-4 left-4 -translate-y-1 pointer-events-none" htmlFor={type}>
         {label}
       </label>
       <input
