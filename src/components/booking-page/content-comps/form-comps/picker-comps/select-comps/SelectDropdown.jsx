@@ -2,9 +2,12 @@
 import { useState } from "react";
 import { ClickOffBackground, DropdownLabel, DropdownInput } from "./dropdown-comps";
 
-const SelectDropdown = ({selectOptions}) => {
-  const [isDropdownActive, setIsDropdownActive] = useState(false)
-  const [activeOption,setActiveOption] = useState(selectOptions[0])
+const SelectDropdown = ({
+  selectOptions,
+  formData: { formInputs, setFormInputs },
+  pickerType,
+}) => {
+  const [isDropdownActive, setIsDropdownActive] = useState(false);
   //
   return (
     <div className="w-full h-full relative border-b border-lightGray text-xl font-normal">
@@ -15,7 +18,7 @@ const SelectDropdown = ({selectOptions}) => {
       <DropdownLabel
         isDropdownActive={isDropdownActive}
         setIsDropdownActive={setIsDropdownActive}
-        activeOption={activeOption}
+        activeOption={formInputs?.time?.timeOfDay}
       />
       <div
         className={`absolute top-[calc(100%-(-8px))] left-0 bg-white shadow-2xl shadow-codGray/50 z-20 ${isDropdownActive ? "block" : "hidden"}`}
@@ -23,11 +26,12 @@ const SelectDropdown = ({selectOptions}) => {
         {selectOptions?.map((item, _, ray) => {
           return (
             <DropdownInput
-              key={item.id}
+              key={item?.id}
               {...item}
               setIsDropdownActive={setIsDropdownActive}
-              setActiveOption={setActiveOption}
               options={ray}
+              pickerType={pickerType}
+              setFormInputs={setFormInputs}
             />
           );
         })}

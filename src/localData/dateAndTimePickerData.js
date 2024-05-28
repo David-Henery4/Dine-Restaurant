@@ -7,10 +7,10 @@ const datePickerInfo = [
 
 const timePickerInfo = [
   { id: 1, type: "hour", label: "09" },
-  { id: 2, type: "min", label: "00" },
+  { id: 2, type: "minutes", label: "00" },
   {
     id: 3,
-    type: "timeOfDaySelecter",
+    type: "timeOfDay",
     selectOptions: [
       { id: "am", value: "am", label: "AM", name: "timeOfDay" },
       { id: "pm", value: "pm", label: "PM", name: "timeOfDay" },

@@ -1,11 +1,22 @@
 import SelectDropdown from "./select-comps/SelectDropdown";
 
-const PickerInput = ({ label, type, selectOptions = null }) => {
+const PickerInput = ({
+  label,
+  type,
+  selectOptions = null,
+  formData: { formInputs, setFormInputs },
+  pickerType,
+}) => {
+  console.log(pickerType);
   //
   return (
     <>
-      {type === "timeOfDaySelecter" ? (
-        <SelectDropdown selectOptions={selectOptions}/>
+      {type === "timeOfDay" ? (
+        <SelectDropdown
+          selectOptions={selectOptions}
+          formData={{ formInputs, setFormInputs }}
+          pickerType={pickerType}
+        />
       ) : (
         <div className="w-full relative border-b border-lightGray text-xl font-normal">
           <label
@@ -19,6 +30,18 @@ const PickerInput = ({ label, type, selectOptions = null }) => {
             type="text"
             name={type}
             id={type}
+            value={formInputs[type]}
+            onChange={(e) => {
+              setFormInputs((oldVals) => {
+                return {
+                  ...oldVals,
+                  [pickerType]: {
+                    ...oldVals[pickerType],
+                    [type]: e.target.value,
+                  },
+                };
+              });
+            }}
           />
         </div>
       )}

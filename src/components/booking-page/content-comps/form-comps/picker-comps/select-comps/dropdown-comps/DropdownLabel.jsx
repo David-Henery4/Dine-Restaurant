@@ -11,7 +11,7 @@ const DropdownLabel = ({
       className="relative py-4 z-20 flex justify-center items-center gap-2 hover:cursor-pointer"
       onClick={() => setIsDropdownActive(!isDropdownActive)}
     >
-      <p className="leading-[normal]">{activeOption?.label}</p>
+      <p className="leading-[normal] uppercase">{activeOption}</p>
       <ArrowIcon />
     </div>
   );

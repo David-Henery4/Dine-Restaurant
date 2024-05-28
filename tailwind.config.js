@@ -15,6 +15,7 @@ module.exports = {
       smLap: "53.75em", // 860px
       lap: "57.5em", // 920px
       lgLap: "66.25em", // 1060px
+      smDesk: "68.75em", // 1100px
       desk: "75em", // 1200px
       lgDesk: "81.25em", // 1300px
     },
@@ -58,6 +59,7 @@ module.exports = {
       white: "#FFFFFF",
       offWhite: "#F3F5F8",
       black: "#000000",
+      lightBlack: "#151515",
       blackHover: "#141414",
       red: "#B54949",
       // Primary

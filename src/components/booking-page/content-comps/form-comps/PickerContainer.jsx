@@ -1,13 +1,18 @@
 import PickerInput from "./picker-comps/PickerInput"
 
-const PickerContainer = ({ pickerType = "date", pickerInfo }) => {
+const PickerContainer = ({
+  pickerType = "date",
+  pickerInfo,
+  register,
+  formData,
+}) => {
   //
   return (
-    <fieldset className="w-full">
-      <legend className="text-xl font-normal text-codGray">
+    <fieldset className="w-full smTab:grid smTab:gap-16">
+      <legend className="text-xl font-normal text-codGray smTab:float-left smTab:inline-grid smTab:place-items-end smTab:pb-2">
         Pick a {pickerType}
       </legend>
-      <div className="flex justify-center items-center gap-[14px] mt-2">
+      <div className="flex justify-center items-center gap-[14px] mt-2 smTab:col-start-2 smTab:col-end-3">
         {pickerInfo.map((item) => {
           return (
             <PickerInput
@@ -15,6 +20,8 @@ const PickerContainer = ({ pickerType = "date", pickerInfo }) => {
               type={item?.type}
               label={item?.label}
               selectOptions={item?.selectOptions}
+              formData={formData}
+              pickerType={pickerType}
             />
           );
         })}

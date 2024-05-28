@@ -4,8 +4,8 @@ import ContentContainer from "@/components/booking-page/ContentContainer";
 
 const BookingContent = () => {
   return (
-    <section className="w-full col-start-2 col-end-12 row-start-1 row-end-3 pt-14 pb-[86px]">
-      <div className="grid place-items-center">
+    <section className="w-full max-w-maxContentWidth mx-auto col-start-2 col-end-12 row-start-1 row-end-3 pt-14 pb-[86px] smTab:pb-[120px] smDesk:pt-16">
+      <div className="grid place-items-center smDesk:place-items-start">
         <Link
           href="/"
           title="Logo icon, which directs to the homepage"
