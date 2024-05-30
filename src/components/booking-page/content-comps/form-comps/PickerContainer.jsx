@@ -22,6 +22,7 @@ const PickerContainer = ({
               selectOptions={item?.selectOptions}
               formData={formData}
               pickerType={pickerType}
+              register={register}
             />
           );
         })}

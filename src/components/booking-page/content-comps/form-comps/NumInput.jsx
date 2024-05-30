@@ -36,7 +36,7 @@ const NumInput = ({ register, formData: { formInputs, setFormInputs } }) => {
       </button>
       <div className="flex justify-center items-center text-lightBlack font-bold text-xl">
         <input
-          {...register("amountOfPeople")}
+          {...register("amountOfPeople", { required: true })}
           type="number"
           name="amountOfPeople"
           id="amountOfPeople"

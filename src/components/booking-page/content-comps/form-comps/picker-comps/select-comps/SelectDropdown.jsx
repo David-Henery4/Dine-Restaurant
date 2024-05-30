@@ -6,6 +6,7 @@ const SelectDropdown = ({
   selectOptions,
   formData: { formInputs, setFormInputs },
   pickerType,
+  register,
 }) => {
   const [isDropdownActive, setIsDropdownActive] = useState(false);
   //
@@ -23,15 +24,18 @@ const SelectDropdown = ({
       <div
         className={`absolute top-[calc(100%-(-8px))] left-0 bg-white shadow-2xl shadow-codGray/50 z-20 ${isDropdownActive ? "block" : "hidden"}`}
       >
-        {selectOptions?.map((item, _, ray) => {
+        {selectOptions?.map((item, i, ray) => {
+          const defaultChecked = i === 0 ? true : false
           return (
             <DropdownInput
               key={item?.id}
+              defaultChecked={defaultChecked}
               {...item}
               setIsDropdownActive={setIsDropdownActive}
               options={ray}
               pickerType={pickerType}
               setFormInputs={setFormInputs}
+              register={register}
             />
           );
         })}

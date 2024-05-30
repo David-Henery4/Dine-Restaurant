@@ -1,6 +1,6 @@
 "use client";
 //
-import { useForm } from "react-hook-form";
+import { useForm, useController, useFormState } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import bookingSchema from "@/zod/bookingSchema";
 //
@@ -12,21 +12,44 @@ import {
   datePickerInfo,
   timePickerInfo,
 } from "@/localData/dateAndTimePickerData";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 
 const BookingForm = () => {
   const [formInputs, setFormInputs] = useState(defaultFormInputs);
+  //
   const {
-    formState: { isLoading, errors },
+    formState: { isLoading, errors, defaultValues, isValid,  },
     clearErrors,
     register,
     handleSubmit,
-  } = useForm({ resolver: zodResolver(bookingSchema) });
+    control,
+    trigger,
+  } = useForm({
+    resolver: zodResolver(bookingSchema),
+    values: formInputs,
+    defaultValues: formInputs,
+  });
   //
-  const handleValdationAndAction = (formData) => {
-    handleSubmit();
-    bookingAction(formData);
+  const handleValdationAndAction = () => {
+    //
+    trigger();
+    const errorKeysRay = Object.keys(errors);
+    if (errorKeysRay.length >= 1) return;
+    if (isValid){
+      console.log("called")
+      bookingAction(formInputs);
+    }
   };
+  //
+  useEffect(() => {
+    console.log(Object.keys(errors));
+    console.log(errors["time and date"]);
+    console.log(errors?.name);
+    console.log(errors?.email);
+    console.log(errors?.date);
+    console.log(errors?.time);
+    console.log(errors?.amountOfPeople);
+  }, [errors]);
   //
   return (
     <form

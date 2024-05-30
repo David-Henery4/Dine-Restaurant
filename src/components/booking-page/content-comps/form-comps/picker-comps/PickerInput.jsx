@@ -6,8 +6,8 @@ const PickerInput = ({
   selectOptions = null,
   formData: { formInputs, setFormInputs },
   pickerType,
+  register,
 }) => {
-  console.log(pickerType);
   //
   return (
     <>
@@ -16,6 +16,7 @@ const PickerInput = ({
           selectOptions={selectOptions}
           formData={{ formInputs, setFormInputs }}
           pickerType={pickerType}
+          register={register}
         />
       ) : (
         <div className="w-full relative border-b border-lightGray text-xl font-normal">
@@ -26,6 +27,7 @@ const PickerInput = ({
             {label}
           </label>
           <input
+            {...register(type, { required: true })}
             className="w-full h-full p-4 outline-none text-codGray uppercase"
             type="text"
             name={type}

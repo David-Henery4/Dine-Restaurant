@@ -9,6 +9,8 @@ const DropdownInput = ({
   options,
   pickerType,
   setFormInputs,
+  register,
+  defaultChecked,
 }) => {
   return (
     <div className="w-full relative px-4 py-2 flex justify-center items-center gap-4 hover:bg-offWhite">
@@ -17,6 +19,8 @@ const DropdownInput = ({
       </div>
       <label className="pointer-events-none">{label}</label>
       <input
+        {...register(name, { required: true })}
+        defaultChecked={defaultChecked}
         type="radio"
         name={name}
         id={id}
@@ -30,10 +34,10 @@ const DropdownInput = ({
               ...oldVals,
               [pickerType]: {
                 ...oldVals[pickerType],
-                [name]: newActiveItem[0]?.value
-              }
-            }
-          })
+                [name]: newActiveItem[0]?.value,
+              },
+            };
+          });
         }}
       />
     </div>
