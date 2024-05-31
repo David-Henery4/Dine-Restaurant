@@ -17,7 +17,7 @@ const Input = ({
       </label>
       <input
         {...register(type, { required:true })}
-        className="w-full h-full p-4 outline-none text-codGray"
+        className="w-full h-full p-4 outline-none text-codGray caret-beaver"
         type="text"
         name={type}
         id={type}

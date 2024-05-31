@@ -14,6 +14,9 @@ const BookingTextContent = () => {
         feel free to call on the phone number below. We’ll be happy to
         accommodate you.
       </BodyText>
+      <BodyText className="mt-2">
+        Opening times: 11:00 AM - 11:00 PM
+      </BodyText>
       <Button className="mt-5 smDesk:hidden">RESERVE PLACE</Button>
     </div>
   );

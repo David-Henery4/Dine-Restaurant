@@ -1,6 +1,7 @@
 import { z } from "zod";
 import formatDate from "@/helpers/formatDate";
 import to12HourTime from "@/helpers/to12HourTime";
+import getLastDayOfMonth from "@/helpers/getLastDayOfMonth";
 
 // Maybe try and combine the dates and use this:
 // z.date().min(new Date("1900-01-01"), { message: "Too old" });
@@ -26,26 +27,35 @@ const Booking = z
     //
     date: z
       .object({
-        day: z
-          .string({
+        day: z.coerce
+          .number({
             required_error: "Day is required",
-            invalid_type_error: "Day must be a string",
+            invalid_type_error: "Day must be a number",
           })
-          .length(2, { message: "Has to be two characters" }),
+          .min(1, { message: "Minimum must be 1" })
+          .max(getLastDayOfMonth(), {
+            message: `Maximum must be ${getLastDayOfMonth()}`,
+          }),
         //
-        month: z
-          .string({
+        month: z.coerce
+          .number({
             required_error: "Month is required",
-            invalid_type_error: "Month must be a string",
+            invalid_type_error: "Month must be a number",
           })
-          .length(2, { message: "Has to be two characters" }),
+          .min(1, { message: "Minimum must be 1" })
+          .max(12, { message: "Maximum must be 12" }),
         //
         year: z.coerce
-          .string({
+          .number({
             required_error: "Year is required",
-            invalid_type_error: "Year must be a string",
+            invalid_type_error: "Year must be a Number",
           })
-          .length(4, { message: "Has to be four characters" }),
+          .min(new Date().getFullYear(), {
+            message: "Can't be last year or later",
+          })
+          .max(new Date().getFullYear() + 1, {
+            message: "Can't be more than a year in advance",
+          }),
       })
       .transform((val, ctx) => {
         // Check to see if the date is valid (current date or in future)
@@ -56,9 +66,9 @@ const Booking = z
         };
         //
         const userInputedDateFormated = formatDate(
-          val?.day,
-          val.month,
-          val.year
+          `${val?.day}`.padStart(2, "0"),
+          `${val?.month}`.padStart(2, "0"),
+          val?.year
         );
         const currentDateFormated = formatDate(
           currentDate.day,
@@ -80,13 +90,54 @@ const Booking = z
     time: z
       .object({
         hour: z.coerce
-          .number()
-          .min(1, { message: "Can't be less than 1" })
-          .max(12, { message: "Can't be more than 12" }),
+          .number({
+            required_error: "Hour required",
+            invalid_type_error: "Hour must be a number",
+          })
+          .min(1, { message: "Can't be lower than 1" })
+          .max(12, { message: "Can't be higher than 12" })
+          .transform((val, ctx) => {
+            if (`${val}`.trim().length <= 0 || `${val}`.trim() === "") {
+              ctx.addIssue({
+                code: z.ZodIssueCode.custom,
+                message: "Can't be empty",
+              });
+              return z.NEVER;
+            }
+            return Number(val);
+          }),
         //
-        minutes: z.coerce
-          .number()
-          .max(60, { message: "Can't be more than 60" }),
+        minutes: z
+          .string({
+            required_error: "Minutes required",
+            invalid_type_error: "Minutes must be a string",
+          })
+          .transform((val, ctx) => {
+            console.log(val);
+            if (val.trim().length <= 0 || val.trim() === "") {
+              ctx.addIssue({
+                code: z.ZodIssueCode.custom,
+                message: "Can't be empty",
+              });
+              return z.NEVER;
+            }
+            if (!Number(val) && Number(val) !== 0) {
+              console.log(val);
+              ctx.addIssue({
+                code: z.ZodIssueCode.custom,
+                message: "Needs to be a number",
+              });
+              return z.NEVER;
+            }
+            if (Number(val) >= 60) {
+              ctx.addIssue({
+                code: z.ZodIssueCode.custom,
+                message: "Minutes has to be lower than 60",
+              });
+              return z.NEVER;
+            }
+            return Number(val);
+          }),
         //
         timeOfDay: z
           .string({
@@ -100,6 +151,19 @@ const Booking = z
       .transform((val, ctx) => {
         const { hour, minutes, timeOfDay } = val;
         const userInputedHour = to12HourTime(hour, timeOfDay);
+
+        // Check opening times
+        if (
+          userInputedHour < 11 ||
+          userInputedHour > 23 ||
+          (userInputedHour === 23 && minutes > 0)
+        ) {
+          ctx.addIssue({
+            code: z.ZodIssueCode.custom,
+            message: "Closed at this time",
+          });
+          return z.NEVER;
+        }
 
         // Formating current time & requested booking time
         const givenTime = new Date();
@@ -131,7 +195,7 @@ const Booking = z
       })
       .min(1, { message: "Minimum number of people is 1" })
       .max(12, { message: "Max number of people is 12" }),
-  })
+  }) // Transform below is used for the entire form
   .transform((values, ctx) => {
     // Initial values
     const { date, time } = values;
@@ -143,8 +207,8 @@ const Booking = z
       year: `${new Date().getFullYear()}`,
     };
     const userInputedDateFormated = formatDate(
-      date?.day,
-      date.month,
+      `${date?.day}`.padStart(2, "0"),
+      `${date?.month}`.padStart(2, "0"),
       date.year
     );
     const currentDateFormated = formatDate(

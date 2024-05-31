@@ -44,7 +44,7 @@ const NumInput = ({ register, formData: { formInputs, setFormInputs } }) => {
           min={1}
           max={12}
           readOnly
-          className="outline-none pointer-events-none text-center"
+          className="outline-none pointer-events-none text-center caret-beaver"
         />
         <label htmlFor="amountOfPeople">{`${formInputs?.amountOfPeople > 1 ? "People" : "Person"}`}</label>
       </div>

@@ -42,7 +42,6 @@ const BookingForm = () => {
   };
   //
   useEffect(() => {
-    console.log(Object.keys(errors));
     console.log(errors["time and date"]);
     console.log(errors?.name);
     console.log(errors?.email);

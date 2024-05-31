@@ -25,7 +25,7 @@ const DropdownInput = ({
         name={name}
         id={id}
         value={value}
-        className="absolute h-full w-full top-0 left-0 opacity-0 hover:cursor-pointer"
+        className="absolute h-full w-full top-0 left-0 opacity-0 hover:cursor-pointer caret-beaver"
         onClick={() => {
           const newActiveItem = options.filter((option) => option.id === id);
           setIsDropdownActive(false);
