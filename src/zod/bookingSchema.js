@@ -14,7 +14,19 @@ const Booking = z
         invalid_type_error: "Name must be a string",
       })
       .trim()
-      .min(2, { message: "Must be at least 2 characters" }),
+      .transform((val, ctx) => {
+        if (val.trim() === "" || val.trim().length <= 0)
+          ctx.addIssue({
+            code: z.ZodIssueCode.custom,
+            message: "This field is required",
+          });
+        if (val.trim().length < 2)
+          ctx.addIssue({
+            code: z.ZodIssueCode.custom,
+            message: "Needs at least 2 characters",
+          });
+        return val;
+      }),
     //
     email: z
       .string({
@@ -32,7 +44,7 @@ const Booking = z
             required_error: "Day is required",
             invalid_type_error: "Day must be a number",
           })
-          .min(1, { message: "Minimum must be 1" })
+          .min(1, { message: "Minimum must be 01" })
           .max(getLastDayOfMonth(), {
             message: `Maximum must be ${getLastDayOfMonth()}`,
           }),
@@ -42,7 +54,7 @@ const Booking = z
             required_error: "Month is required",
             invalid_type_error: "Month must be a number",
           })
-          .min(1, { message: "Minimum must be 1" })
+          .min(1, { message: "Minimum must be 01" })
           .max(12, { message: "Maximum must be 12" }),
         //
         year: z.coerce
@@ -51,7 +63,7 @@ const Booking = z
             invalid_type_error: "Year must be a Number",
           })
           .min(new Date().getFullYear(), {
-            message: "Can't be last year or later",
+            message: "Can't be in the past",
           })
           .max(new Date().getFullYear() + 1, {
             message: "Can't be more than a year in advance",
@@ -79,7 +91,7 @@ const Booking = z
         if (+userInputedDateFormated < +currentDateFormated) {
           ctx.addIssue({
             code: z.ZodIssueCode.custom,
-            message: "Can't be in the past",
+            message: "Date be in the past",
           });
           return z.NEVER;
         }
@@ -94,7 +106,7 @@ const Booking = z
             required_error: "Hour required",
             invalid_type_error: "Hour must be a number",
           })
-          .min(1, { message: "Can't be lower than 1" })
+          .min(1, { message: "Minimum must be 01" })
           .max(12, { message: "Can't be higher than 12" })
           .transform((val, ctx) => {
             if (`${val}`.trim().length <= 0 || `${val}`.trim() === "") {
@@ -237,7 +249,7 @@ const Booking = z
       ctx.addIssue({
         code: z.ZodIssueCode.custom,
         message: "Requested time was before the current time",
-        path: ["time and date"],
+        path: ["time"],
       });
       return z.NEVER;
     }

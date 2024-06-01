@@ -42,7 +42,8 @@ const BookingForm = () => {
   };
   //
   useEffect(() => {
-    console.log(errors["time and date"]);
+    console.log(errors)
+    console.log(Object.entries(errors).length >=1);
     console.log(errors?.name);
     console.log(errors?.email);
     console.log(errors?.date);
@@ -60,26 +61,40 @@ const BookingForm = () => {
         label="Name"
         register={register}
         formData={{ formInputs, setFormInputs }}
+        errors={errors}
       />
       <Input
         type="email"
         label="Email"
         register={register}
         formData={{ formInputs, setFormInputs }}
+        errors={errors}
       />
       <PickerContainer
         pickerType="date"
         pickerInfo={datePickerInfo}
         register={register}
         formData={{ formInputs, setFormInputs }}
+        errors={errors}
       />
       <PickerContainer
         pickerType="time"
         pickerInfo={timePickerInfo}
         register={register}
         formData={{ formInputs, setFormInputs }}
+        errors={errors}
       />
-      <NumInput register={register} formData={{ formInputs, setFormInputs }} />
+      {errors?.date?.message && (
+        <p className="text-sm text-red">{errors?.date?.message}</p>
+      )}
+      {errors?.time?.message && (
+        <p className="text-sm text-red">{errors?.time?.message}</p>
+      )}
+      <NumInput
+        register={register}
+        formData={{ formInputs, setFormInputs }}
+        errors={errors}
+      />
       <SubmitBtn />
     </form>
   );
