@@ -62,6 +62,7 @@ module.exports = {
       lightBlack: "#151515",
       blackHover: "#141414",
       red: "#B54949",
+      green: "#11BE0E",
       // Primary
       beaver: "#9e7f66",
       codGray: "#111111",

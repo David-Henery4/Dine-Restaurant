@@ -3,8 +3,6 @@ import formatDate from "@/helpers/formatDate";
 import to12HourTime from "@/helpers/to12HourTime";
 import getLastDayOfMonth from "@/helpers/getLastDayOfMonth";
 
-// Maybe try and combine the dates and use this:
-// z.date().min(new Date("1900-01-01"), { message: "Too old" });
 
 const Booking = z
   .object({
@@ -176,26 +174,6 @@ const Booking = z
           });
           return z.NEVER;
         }
-
-        // Formating current time & requested booking time
-        const givenTime = new Date();
-        givenTime.setHours(userInputedHour + 1, minutes, 0, 0);
-        const currentTime = new Date(
-          new Date().setHours(new Date().getHours() + 1)
-        );
-
-        // Difference between time
-        const timeDifference = givenTime.getTime() - currentTime.getTime();
-
-        // Check to see requested booking time is at least one hour ahead of current time
-        if (timeDifference <= 3600000 && timeDifference > 1) {
-          ctx.addIssue({
-            code: z.ZodIssueCode.custom,
-            message:
-              "Booking must be at least one hour in advance of current time",
-          });
-          return z.NEVER;
-        }
         //
         return val;
       }),
@@ -240,6 +218,24 @@ const Booking = z
 
     // Difference between time
     const timeDifference = givenTime.getTime() - currentTime.getTime();
+
+    ////////////////////////////////////////////////////////////////////////////
+
+    // Check to see requested booking time is at least one hour ahead of current time on the same day
+    if (
+      +userInputedDateFormated === +currentDateFormated &&
+      timeDifference <= 3600000 &&
+      timeDifference > 1
+    ) {
+      ctx.addIssue({
+        code: z.ZodIssueCode.custom,
+        message: "Booking must be at least one hour in advance of current time",
+        path: ["time"],
+      });
+      return z.NEVER;
+    }
+
+    ///////////////////////////////////////////////////////////////////////////////
 
     // Using timestamps to check if current date is equal to booking date & if requested time was earlier than the current time
     if (
