@@ -1,3 +1,5 @@
+import { useEffect } from "react";
+
 const Input = ({
   label,
   type,
@@ -5,6 +7,9 @@ const Input = ({
   formData: { formInputs, setFormInputs },
   errors,
 }) => {
+  useEffect(() => {
+  register(type, { required: true });
+  })
   //
   return (
     <div className="w-full">
@@ -18,7 +23,7 @@ const Input = ({
           {label}
         </label>
         <input
-          {...register(type, { required: true })}
+          // {...register(type, { required: true })}
           className="w-full h-full p-4 outline-none text-codGray caret-beaver"
           type="text"
           name={type}

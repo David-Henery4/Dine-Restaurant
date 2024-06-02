@@ -1,3 +1,4 @@
+import { useEffect } from "react";
 import CheckIcon from "/public/assets/icons/icon-check.svg";
 
 const DropdownInput = ({
@@ -12,6 +13,11 @@ const DropdownInput = ({
   register,
   defaultChecked,
 }) => {
+  //
+  useEffect(() => {
+    register(name, { required: true });
+  })
+  //
   return (
     <div className="w-full relative px-4 py-2 flex justify-center items-center gap-4 hover:bg-offWhite">
       <div className="w-[13px]">
@@ -19,7 +25,7 @@ const DropdownInput = ({
       </div>
       <label className="pointer-events-none">{label}</label>
       <input
-        {...register(name, { required: true })}
+        // {...register(name, { required: true })}
         defaultChecked={defaultChecked}
         type="radio"
         name={name}

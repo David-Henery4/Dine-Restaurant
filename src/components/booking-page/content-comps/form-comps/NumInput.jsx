@@ -1,3 +1,4 @@
+import { useEffect } from "react";
 import MinusIcon from "/public/assets/icons/icon-minus.svg";
 import PlusIcon from "/public/assets/icons/icon-plus.svg";
 
@@ -24,6 +25,10 @@ const NumInput = ({ register, formData: { formInputs, setFormInputs } }) => {
     });
   };
   //
+  useEffect(() => {
+    register("amountOfPeople", { required: true })
+  })
+  //
   return (
     <div className="w-full flex justify-between items-center">
       <button onClick={handleStepDown} className="p-2">
@@ -36,7 +41,7 @@ const NumInput = ({ register, formData: { formInputs, setFormInputs } }) => {
       </button>
       <div className="flex justify-center items-center text-lightBlack font-bold text-xl">
         <input
-          {...register("amountOfPeople", { required: true })}
+          // {...register("amountOfPeople", { required: true })}
           type="number"
           name="amountOfPeople"
           id="amountOfPeople"

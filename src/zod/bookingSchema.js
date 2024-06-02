@@ -123,7 +123,6 @@ const Booking = z
             invalid_type_error: "Minutes must be a string",
           })
           .transform((val, ctx) => {
-            console.log(val);
             if (val.trim().length <= 0 || val.trim() === "") {
               ctx.addIssue({
                 code: z.ZodIssueCode.custom,
@@ -132,7 +131,6 @@ const Booking = z
               return z.NEVER;
             }
             if (!Number(val) && Number(val) !== 0) {
-              console.log(val);
               ctx.addIssue({
                 code: z.ZodIssueCode.custom,
                 message: "Needs to be a number",

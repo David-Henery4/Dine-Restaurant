@@ -1,3 +1,4 @@
+import { useEffect } from "react";
 import SelectDropdown from "./select-comps/SelectDropdown";
 
 const PickerInput = ({
@@ -9,8 +10,10 @@ const PickerInput = ({
   register,
   errors = null,
 }) => {
-  console.log(errors)
-  console.log(type)
+  //
+  useEffect(() => {
+    register(type, { required: true });
+  })
   //
   return (
     <>
@@ -33,7 +36,7 @@ const PickerInput = ({
               {label}
             </label>
             <input
-              {...register(type, { required: true })}
+              // {...register(type, { required: true })}
               className="w-full h-full p-4 outline-none text-codGray uppercase caret-beaver"
               type="text"
               name={type}

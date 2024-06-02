@@ -15,12 +15,12 @@ const PickerContainer = ({
       >
         Pick a {pickerType}
         {errors[pickerType] && (
-          <span className="block text-[10px] text-red leading-none">
+          <span className="block text-[10px] text-red leading-none mb-auto">
             This field is invaild
           </span>
         )}
       </legend>
-      <div className="flex justify-center items-center gap-[14px] mt-2 smTab:col-start-2 smTab:col-end-3">
+      <div className="flex justify-center items-start gap-[14px] mt-2 smTab:col-start-2 smTab:col-end-3">
         {pickerInfo.map((item) => {
           return (
             <PickerInput

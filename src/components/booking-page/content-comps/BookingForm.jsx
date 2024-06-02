@@ -1,7 +1,6 @@
 "use client";
 //
-
-import { useForm, useController, useFormState } from "react-hook-form";
+import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import bookingSchema from "@/zod/bookingSchema";
 //
@@ -28,18 +27,11 @@ const BookingForm = () => {
   //
   const {
     formState: {
-      isLoading,
       errors,
-      defaultValues,
       isValid,
-      isDirty,
-      dirtyFields,
-      touchedFields,
+      isValidating,
     },
-    clearErrors,
     register,
-    handleSubmit,
-    control,
     trigger,
   } = useForm({
     resolver: zodResolver(bookingSchema),
@@ -67,23 +59,14 @@ const BookingForm = () => {
       return;
     }
     // Handle after we get confirmation from sever action!
-    if (!res.isError) setIsFormSubmitted({
-      isSubmitted: true,
-      msg: "Thank you for your booking request. We look forward to seeing you soon.",
-    });
+    if (!res.isError)
+      setIsFormSubmitted({
+        isSubmitted: true,
+        msg: "Thank you for your booking request. We look forward to seeing you soon.",
+      });
   };
   //
   useEffect(() => {
-    console.log(errors);
-    console.log(Object.entries(errors).length >= 1);
-    console.log(errors?.name);
-    console.log(errors?.email);
-    console.log(errors?.date);
-    console.log(errors?.time);
-    console.log(errors?.amountOfPeople);
-    console.log(isDirty);
-    console.log(dirtyFields);
-    console.log(touchedFields);
     setIsServerError({
       isError: false,
       msg: "",
@@ -134,8 +117,14 @@ const BookingForm = () => {
         formData={{ formInputs, setFormInputs }}
         errors={errors}
       />
-      {isFormSubmitted?.isSubmitted ? <p className="text-center text-green">{isFormSubmitted?.msg}</p> : <SubmitBtn />}
-      {isServerError.isError && <p className="text-red text-center">{isServerError?.msg}</p>}
+      {isFormSubmitted?.isSubmitted ? (
+        <p className="text-center text-green">{isFormSubmitted?.msg}</p>
+      ) : (
+        <SubmitBtn isValidating={isValidating} />
+      )}
+      {isServerError.isError && (
+        <p className="text-red text-center">{isServerError?.msg}</p>
+      )}
     </form>
   );
 };
