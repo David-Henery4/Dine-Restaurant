@@ -2,7 +2,7 @@ import { defineField, defineType } from "sanity";
 
 const bookingFormSchema = defineType({
   name: "bookings",
-  title:"Bookings",
+  title: "Bookings",
   type: "document",
   fields: [
     defineField({
@@ -13,22 +13,24 @@ const bookingFormSchema = defineType({
     defineField({
       name: "email",
       title: "Email",
-      type: "string"
+      type: "string",
     }),
     defineField({
       name: "date",
       title: "Date",
+      type: "string",
     }),
     defineField({
       name: "time",
       title: "Time",
+      type: "string",
     }),
     defineField({
       name: "amountOfPeople",
       title: "Amount of people",
-      type: "number"
+      type: "number",
     }),
-  ]
-})
+  ],
+});
 
-export default bookingFormSchema
+export default bookingFormSchema;
