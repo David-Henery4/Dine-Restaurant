@@ -1,4 +1,5 @@
 import { BookingTextContent, BookingForm } from "./content-comps";
+import { PatternDivide } from "../../../public/assets/patterns";
 
 const ContentContainer = () => {
   return (

@@ -13,6 +13,7 @@ import {
   timePickerInfo,
 } from "@/localData/dateAndTimePickerData";
 import { useState, useEffect } from "react";
+import { PatternLines } from "/public/assets/patterns";
 
 const BookingForm = () => {
   const [formInputs, setFormInputs] = useState(defaultFormInputs);
@@ -26,11 +27,7 @@ const BookingForm = () => {
   });
   //
   const {
-    formState: {
-      errors,
-      isValid,
-      isValidating,
-    },
+    formState: { errors, isValid, isValidating },
     register,
     trigger,
   } = useForm({
@@ -74,58 +71,61 @@ const BookingForm = () => {
   }, [errors]);
   //
   return (
-    <form
-      onSubmit={handleValdationAndAction}
-      className="mt-[91px] bg-white p-8 shadow-lg flex flex-col justify-center items-center gap-9 max-w-[540px] mx-auto smTab:p-12 smDesk:m-0"
-    >
-      <Input
-        type="name"
-        label="Name"
-        register={register}
-        formData={{ formInputs, setFormInputs }}
-        errors={errors}
-      />
-      <Input
-        type="email"
-        label="Email"
-        register={register}
-        formData={{ formInputs, setFormInputs }}
-        errors={errors}
-      />
-      <PickerContainer
-        pickerType="date"
-        pickerInfo={datePickerInfo}
-        register={register}
-        formData={{ formInputs, setFormInputs }}
-        errors={errors}
-      />
-      <PickerContainer
-        pickerType="time"
-        pickerInfo={timePickerInfo}
-        register={register}
-        formData={{ formInputs, setFormInputs }}
-        errors={errors}
-      />
-      {errors?.date?.message && (
-        <p className="text-sm text-red">{errors?.date?.message}</p>
-      )}
-      {errors?.time?.message && (
-        <p className="text-sm text-red">{errors?.time?.message}</p>
-      )}
-      <NumInput
-        register={register}
-        formData={{ formInputs, setFormInputs }}
-        errors={errors}
-      />
-      {isFormSubmitted?.isSubmitted ? (
-        <p className="text-center text-green">{isFormSubmitted?.msg}</p>
-      ) : (
-        <SubmitBtn isValidating={isValidating} />
-      )}
-      {isServerError.isError && (
-        <p className="text-red text-center">{isServerError?.msg}</p>
-      )}
-    </form>
+    <div className="relative">
+      <form
+        onSubmit={handleValdationAndAction}
+        className="relative z-10 mt-[91px] bg-white p-8 shadow-lg flex flex-col justify-center items-center gap-9 max-w-[540px] mx-auto smTab:p-12 smDesk:m-0"
+      >
+        <Input
+          type="name"
+          label="Name"
+          register={register}
+          formData={{ formInputs, setFormInputs }}
+          errors={errors}
+        />
+        <Input
+          type="email"
+          label="Email"
+          register={register}
+          formData={{ formInputs, setFormInputs }}
+          errors={errors}
+        />
+        <PickerContainer
+          pickerType="date"
+          pickerInfo={datePickerInfo}
+          register={register}
+          formData={{ formInputs, setFormInputs }}
+          errors={errors}
+        />
+        <PickerContainer
+          pickerType="time"
+          pickerInfo={timePickerInfo}
+          register={register}
+          formData={{ formInputs, setFormInputs }}
+          errors={errors}
+        />
+        {errors?.date?.message && (
+          <p className="text-sm text-red">{errors?.date?.message}</p>
+        )}
+        {errors?.time?.message && (
+          <p className="text-sm text-red">{errors?.time?.message}</p>
+        )}
+        <NumInput
+          register={register}
+          formData={{ formInputs, setFormInputs }}
+          errors={errors}
+        />
+        {isFormSubmitted?.isSubmitted ? (
+          <p className="text-center text-green">{isFormSubmitted?.msg}</p>
+        ) : (
+          <SubmitBtn isValidating={isValidating} />
+        )}
+        {isServerError.isError && (
+          <p className="text-red text-center">{isServerError?.msg}</p>
+        )}
+      </form>
+      <PatternLines className="hidden smDesk:block absolute -bottom-[38px] -left-[80px]" />
+    </div>
   );
 };
 
