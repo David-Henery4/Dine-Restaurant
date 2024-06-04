@@ -4,7 +4,7 @@ const CardImg = ({ imgSrcs }) => {
   const {mobile, tablet, desktop} = imgSrcs;
   //
   return (
-    <div className="w-full max-w-96 mx-auto max-h-[469px] xtraSmTab:max-h-[360px] xtraSmTab:max-w-[573px] lap:h-full lap:flex-1 lap:min-h-[525px] lap:max-h-[720px] lap:max-w-[540px]">
+    <div className="w-full max-w-96 mx-auto max-h-[469px] xtraSmTab:max-h-[360px] xtraSmTab:max-w-[573px] lap:h-full lap:flex-1 lap:min-h-[525px] lap:max-h-[720px] lap:max-w-[540px] shadow-2xl">
       <picture>
         <source media="(min-width: 920px)" srcSet={desktop} />
         <source media="(min-width: 560px)" srcSet={tablet} />

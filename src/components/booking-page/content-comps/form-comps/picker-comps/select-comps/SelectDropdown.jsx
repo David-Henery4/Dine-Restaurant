@@ -41,6 +41,7 @@ const SelectDropdown = ({
                 pickerType={pickerType}
                 setFormInputs={setFormInputs}
                 register={register}
+                activeOption={formInputs?.time?.timeOfDay}
               />
             );
           })}

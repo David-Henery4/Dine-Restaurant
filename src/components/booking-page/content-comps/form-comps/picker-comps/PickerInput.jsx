@@ -1,5 +1,6 @@
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import SelectDropdown from "./select-comps/SelectDropdown";
+import hideShowLabel from "@/helpers/hideShowLabel";
 
 const PickerInput = ({
   label,
@@ -10,6 +11,7 @@ const PickerInput = ({
   register,
   errors = null,
 }) => {
+  const [inputHasValue, setInputHasValue] = useState(false);
   //
   useEffect(() => {
     register(type, { required: true });
@@ -30,7 +32,7 @@ const PickerInput = ({
             className={`w-full relative border-b text-xl font-normal ${errors && errors[type] ? "border-red" : "border-lightGray"}`}
           >
             <label
-              className={`absolute top-4 left-4 -translate-y-1 pointer-events-none ${errors && errors[type] ? "text-red/50" : "text-codGray/50"}`}
+              className={`absolute top-4 left-4 -translate-y-1 pointer-events-none ${errors && errors[type] ? "text-red/50" : "text-codGray/50"} ${inputHasValue ? "opacity-0" : "opacity-100"}`}
               htmlFor={type}
             >
               {label}
@@ -41,7 +43,11 @@ const PickerInput = ({
               type="text"
               name={type}
               id={type}
-              value={formInputs[type]}
+              value={formInputs[pickerType][type]}
+              onFocus={() => setInputHasValue(true)}
+              onBlur={() =>
+                hideShowLabel(formInputs[pickerType][type], setInputHasValue)
+              }
               onChange={(e) => {
                 setFormInputs((oldVals) => {
                   return {

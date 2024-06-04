@@ -12,6 +12,7 @@ const DropdownInput = ({
   setFormInputs,
   register,
   defaultChecked,
+  activeOption,
 }) => {
   //
   useEffect(() => {
@@ -21,7 +22,7 @@ const DropdownInput = ({
   return (
     <div className="w-full relative px-4 py-2 flex justify-center items-center gap-4 hover:bg-offWhite">
       <div className="w-[13px]">
-        <CheckIcon />
+        {activeOption === value && <CheckIcon />}
       </div>
       <label className="pointer-events-none">{label}</label>
       <input

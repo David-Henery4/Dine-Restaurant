@@ -9,6 +9,11 @@ import salmonDeskTab2 from "/public/images/homepage/desktop/salmon-desktop-table
 import beefDeskTab2 from "/public/images/homepage/desktop/beef-desktop-tablet@2x.jpg";
 import chocolateDeskTab2 from "/public/images/homepage/desktop/chocolate-desktop-tablet@2x.jpg";
 
+// Slider Images
+import FamilyGatheringSliderImgTab from "/public/images/homepage/tablet/family-gathering-tablet@2x.jpg";
+import SocialEventsSliderImgTab from "/public/images/homepage/tablet/social-events-tablet@2x.jpg";
+import SpecialEventsSliderImgTab from "/public/images/homepage/tablet/special-events-tablet@2x.jpg";
+
 export {
   enjoyablePlaceTab1,
   enjoyablePlaceTab2,
@@ -17,5 +22,9 @@ export {
   //
   salmonDeskTab2,
   beefDeskTab2,
-  chocolateDeskTab2
+  chocolateDeskTab2,
+    // Slider Images
+  FamilyGatheringSliderImgTab,
+  SocialEventsSliderImgTab,
+  SpecialEventsSliderImgTab
 };

@@ -1,18 +1,16 @@
 import { BodyText, Heading } from "@/components/shared";
 
-const TextContent = () => {
+const TextContent = ({ activeTabObject }) => {
   return (
     <div className="text-center lgLap:text-left">
       <Heading
         headingType="lg"
         className="text-[32px] leading-10 -tracking-[0.4px]"
       >
-        Family Gathering
+        {activeTabObject?.title}
       </Heading>
       <BodyText theme="light" className="mt-3 lgMob:mt-5">
-        We love catering for entire families. So please bring everyone along for
-        a special meal with your loved ones. We’ll provide a memorable
-        experience for all.
+        {activeTabObject?.text}
       </BodyText>
     </div>
   );

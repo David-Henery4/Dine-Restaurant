@@ -1,4 +1,5 @@
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
+import hideShowLabel from "@/helpers/hideShowLabel";
 
 const Input = ({
   label,
@@ -7,9 +8,11 @@ const Input = ({
   formData: { formInputs, setFormInputs },
   errors,
 }) => {
+  const [inputHasValue, setInputHasValue] = useState(false);
+  //
   useEffect(() => {
-  register(type, { required: true });
-  })
+    register(type, { required: true });
+  });
   //
   return (
     <div className="w-full">
@@ -17,7 +20,7 @@ const Input = ({
         className={`w-full relative border-b text-xl font-normal ${errors[type] ? "border-red text-red/50" : "border-lightGray text-codGray/50"}`}
       >
         <label
-          className="absolute top-4 left-4 -translate-y-1 pointer-events-none"
+          className={`absolute top-4 left-4 -translate-y-1 pointer-events-none ${inputHasValue ? "opacity-0" : "opacity-100"}`}
           htmlFor={type}
         >
           {label}
@@ -29,6 +32,8 @@ const Input = ({
           name={type}
           id={type}
           value={formInputs[type]}
+          onFocus={() => setInputHasValue(true)}
+          onBlur={() => hideShowLabel(formInputs[type], setInputHasValue)}
           onChange={(e) => {
             setFormInputs((oldVals) => {
               return {
@@ -39,7 +44,11 @@ const Input = ({
           }}
         />
       </div>
-      {errors[type] && <p className="mt-3 ml-4 text-[10px] text-red">{errors[type]?.message}</p>}
+      {errors[type] && (
+        <p className="mt-3 ml-4 text-[10px] text-red">
+          {errors[type]?.message}
+        </p>
+      )}
     </div>
   );
 };
