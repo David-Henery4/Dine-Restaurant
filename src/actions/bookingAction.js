@@ -31,10 +31,10 @@ const bookingAction = async (formData) => {
     date: { day, month, year },
     time: { hour, minutes, timeOfDay },
   } = checkedDataResult?.data;
-  //
+  // date: `${year}-${String(month).padStart(2, "0")}-${String(day).padStart(2, "0")}`,
   const readyData = {
     ...checkedDataResult?.data,
-    date: `${String(day).padStart(2, "0")}-${String(month).padStart(2, "0")}-${year}`,
+    date: `${year}-${String(month).padStart(2, "0")}-${String(day).padStart(2, "0")}`,
     time: `${String(hour).padStart(2, "0")}:${String(minutes).padStart(2, "0")}${timeOfDay}`,
   };
 
