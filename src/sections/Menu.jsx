@@ -1,9 +1,11 @@
 import { BodyText, Heading, CircleLineDecoration } from "@/components/shared";
 import MenuCardContainer from "@/components/menu/MenuCardContainer";
+import { PatternCurveTopLeft } from "/public/assets/patterns";
 
 const Menu = () => {
   return (
-    <section className="w-full col-start-1 col-end-13 pt-[72px] pb-[102px] bg-codGray grid grid-cols-mob lgMob:grid-cols-tab lgMob:py-24 lgLap:pt-[262px] lgLap:pb-[120px] desk:grid-cols-lap lgDesk:grid-cols-desk">
+    <section className="relative w-full col-start-1 col-end-13 pt-[72px] pb-[102px] bg-codGray grid grid-cols-mob lgMob:grid-cols-tab lgMob:py-24 lgLap:pt-[262px] lgLap:pb-[120px] desk:grid-cols-lap lgDesk:grid-cols-desk">
+      <PatternCurveTopLeft className="hidden tab:block absolute -top-[320px] -right-[50%] lap:-right-[20%] smDesk:-right-[10%] lgDesk:-right-0" />
       <div className="w-full col-start-2 col-end-12 flex flex-col justify-center items-center gap-[85px] lgMob:gap-14 smTab:col-start-3 smTab:col-end-11 lgLap:flex-row lgLap:col-start-2 lgLap:col-end-12 lgLap:items-start lgLap:gap-[125px] lgDesk:max-w-maxContentWidth lgDesk:mx-auto">
         <div className="text-center lgLap:text-left lgLap:flex-[2] lgLap:grid lgLap:justify-items-start">
           <CircleLineDecoration />

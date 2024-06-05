@@ -2,15 +2,15 @@ import AboutCard from "@/components/about/AboutCard";
 import {
   enjoyablePlaceMob2,
   locallySourcedMob2,
-} from "../../public/images/homepage/mobile";
+} from "/public/images/homepage/mobile";
 import {
   enjoyablePlaceTab2,
   locallySourcedTab2,
-} from "../../public/images/homepage/tablet";
+} from "/public/images/homepage/tablet";
 import {
   enjoyablePlaceDesk2,
   locallySourcedDesk2,
-} from "../../public/images/homepage/desktop";
+} from "/public/images/homepage/desktop";
 //
 import handleImgs from "@/helpers/imgArtDirectionSort";
 
@@ -26,6 +26,7 @@ const About = () => {
           enjoyablePlaceTab2,
           enjoyablePlaceDesk2
         )}
+        cardNum={1}
       />
       <AboutCard
         title="The most locally sourced food"
@@ -35,6 +36,7 @@ const About = () => {
           locallySourcedTab2,
           locallySourcedDesk2
         )}
+        cardNum={2}
       />
     </section>
   );

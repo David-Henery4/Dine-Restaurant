@@ -12,6 +12,7 @@ module.exports = {
       lgMob: "27.5em", // 440px
       xtraSmTab: "35em", // 560px
       smTab: "41.25em", // 660px
+      tab: "47.5em", // 760px
       smLap: "53.75em", // 860px
       lap: "57.5em", // 920px
       lgLap: "66.25em", // 1060px
