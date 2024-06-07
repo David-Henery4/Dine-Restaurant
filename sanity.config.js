@@ -2,6 +2,7 @@
  * This configuration is used to for the Sanity Studio that’s mounted on the `\src\app\studio\[[...index]]\page.jsx` route
  */
 
+import "./src/custom-studio-css/custom-styles.css"
 import { visionTool } from "@sanity/vision";
 import { defineConfig } from "sanity";
 import { structureTool } from "sanity/structure";
@@ -16,6 +17,12 @@ import { documentListWidget } from "sanity-plugin-dashboard-widget-document-list
 // Go to https://www.sanity.io/docs/api-versioning to learn how API versioning works
 import { apiVersion, dataset, projectId } from "./sanity/env";
 import { schema } from "./sanity/schema";
+import StudioLogo from "/public/assets/studio-logo.svg";
+import CustomNavbar from "@/custom-studio-components/CustomNavbar";
+import CustomToolMenu from "@/custom-studio-components/CustomToolMenu";
+// import { theme } from "https://themer.sanity.build/api/hues?default=9e7f66;lightest:e7e7ee&primary=9e7f66&transparent=9e7f66&positive=lightest:fff;darkest:101112&caution=lightest:fff;darkest:101112&critical=lightest:fff;darkest:101112&lightest=e7e7e7&darkest=111111";
+import { BookIcon } from "@sanity/icons";
+import { theme } from "./sanity/theme";
 
 export default defineConfig({
   basePath: "/studio",
@@ -23,6 +30,15 @@ export default defineConfig({
   dataset,
   // Add and edit the content schema in the './sanity/schema' folder
   schema,
+  theme,
+  icon: StudioLogo,
+  // title: "dine",
+  studio: {
+    components: {
+      navbar: CustomNavbar,
+      toolMenu: CustomToolMenu,
+    },
+  },
   plugins: [
     structureTool(),
     // Vision is a tool that lets you query your content with GROQ in the studio

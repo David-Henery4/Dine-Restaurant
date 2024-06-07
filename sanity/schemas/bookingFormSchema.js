@@ -1,9 +1,23 @@
 import { defineField, defineType } from "sanity";
+import { BookIcon } from "@sanity/icons";
 
 const bookingFormSchema = defineType({
   name: "bookings",
   title: "Bookings",
   type: "document",
+  preview: {
+    select: {
+      title: "name",
+      subtitle: "date",
+    },
+    prepare({subtitle, title}){
+      return {
+        title,
+        subtitle,
+        media: BookIcon
+      }
+    }
+  },
   fields: [
     defineField({
       name: "name",

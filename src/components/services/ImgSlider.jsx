@@ -13,7 +13,7 @@ const ImgSlider = ({ activeTabObject }) => {
   } = getImageProps({...activeTabObject?.mobileProps, alt:activeTabObject?.alt});
   //
   return (
-    <div className="relative w-full max-w-96 mx-auto max-h-[469px] xtraSmTab:max-h-[360px] xtraSmTab:max-w-[573px] lgLap:h-[600px] lgLap:max-w-none lgLap:max-h-none lgLap:col-start-1 lgLap:col-end-7">
+    <div className="relative z-10 w-full max-w-96 mx-auto max-h-[469px] xtraSmTab:max-h-[360px] xtraSmTab:max-w-[573px] lgLap:h-[600px] lgLap:max-w-none lgLap:max-h-none lgLap:col-start-1 lgLap:col-end-7">
       <PatternLines className="hidden tab:block absolute -top-[36.5px] -left-[40px]"/>
       <picture>
         <source media="(min-width: 1060px)" srcSet={desktop} />
