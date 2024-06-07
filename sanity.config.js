@@ -2,7 +2,7 @@
  * This configuration is used to for the Sanity Studio that’s mounted on the `\src\app\studio\[[...index]]\page.jsx` route
  */
 
-import "./src/custom-studio-css/custom-styles.css"
+import "./src/custom-studio-css/custom-styles.css";
 import { visionTool } from "@sanity/vision";
 import { defineConfig } from "sanity";
 import { structureTool } from "sanity/structure";
@@ -40,7 +40,25 @@ export default defineConfig({
     },
   },
   plugins: [
-    structureTool(),
+    structureTool({
+      structure: (S) =>
+        S.list()
+          .title("Base")
+          .items([
+            S.listItem()
+              .title("Bookings by Date")
+              .child(
+                S.documentTypeList("bookings")
+                  .title("Bookings by Date")
+                  .child((bookingId) =>
+                    S.documentList()
+                      .title("Bookings")
+                      .filter("_type == 'bookings' | order(date)")
+                  )
+              ),
+            ...S.documentTypeListItems().reverse(),
+          ]),
+    }),
     // Vision is a tool that lets you query your content with GROQ in the studio
     // https://www.sanity.io/docs/the-vision-plugin
     visionTool({ defaultApiVersion: apiVersion }),

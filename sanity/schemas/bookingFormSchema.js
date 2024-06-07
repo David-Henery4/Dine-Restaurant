@@ -5,18 +5,40 @@ const bookingFormSchema = defineType({
   name: "bookings",
   title: "Bookings",
   type: "document",
+  orderings: [
+    {
+      title: "date, most furthest",
+      name: "dateDesc",
+      by: [
+        {
+          field: "date",
+          direction: "desc",
+        },
+      ],
+    },
+    {
+      title: "date, most recent",
+      name: "dateAsc",
+      by: [
+        {
+          field: "date",
+          direction: "asc",
+        },
+      ],
+    },
+  ],
   preview: {
     select: {
       title: "name",
       subtitle: "date",
     },
-    prepare({subtitle, title}){
+    prepare({ subtitle, title }) {
       return {
         title,
         subtitle,
-        media: BookIcon
-      }
-    }
+        media: BookIcon,
+      };
+    },
   },
   fields: [
     defineField({

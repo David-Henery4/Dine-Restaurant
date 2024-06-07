@@ -32,14 +32,14 @@ const PickerInput = ({
             className={`w-full relative border-b text-xl font-normal ${errors && errors[type] ? "border-red" : "border-lightGray"}`}
           >
             <label
-              className={`absolute top-4 left-4 -translate-y-1 pointer-events-none ${errors && errors[type] ? "text-red/50" : "text-codGray/50"} ${inputHasValue ? "opacity-0" : "opacity-100"}`}
+              className={`absolute top-1/2 left-[6px] -translate-y-1/2  pointer-events-none  ${errors && errors[type] ? "text-red/50" : "text-codGray/50"} ${inputHasValue ? "opacity-0" : "opacity-100"}`}
               htmlFor={type}
             >
               {label}
             </label>
             <input
               // {...register(type, { required: true })}
-              className="w-full h-full p-4 outline-none text-codGray uppercase caret-beaver"
+              className="w-full h-full py-4 px-[6px] outline-none text-codGray uppercase caret-beaver"
               type="text"
               name={type}
               id={type}
