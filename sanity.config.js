@@ -35,7 +35,7 @@ export default defineConfig({
   // title: "dine",
   studio: {
     components: {
-      navbar: CustomNavbar,
+      // navbar: CustomNavbar,
       toolMenu: CustomToolMenu,
     },
   },

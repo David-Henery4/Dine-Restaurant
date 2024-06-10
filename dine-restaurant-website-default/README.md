@@ -16,7 +16,7 @@ Your challenge is to build out this multi-page website and get it looking as clo
 
 You can use any tools you like to help you complete the challenge. So if you've got something you'd like to practice, feel free to give it a go.
 
-Your users should be able to:
+Users are be able to:
 
 - View the optimal layout for each page depending on their device's screen size
 - See hover states for all interactive elements throughout the site
@@ -26,7 +26,6 @@ Your users should be able to:
   - The `Email Address` is not formatted correctly should show "Please use a valid email address"
   - Any of the `Pick a date` or `Pick a time` fields are empty should show "This field is incomplete"
 
-Want some support on the challenge? [Join our community](https://www.frontendmentor.io/community) and ask questions in the **#help** channel.
 
 ## Where to find everything
 
