@@ -21,7 +21,6 @@ import StudioLogo from "/public/assets/studio-logo.svg";
 import CustomNavbar from "@/custom-studio-components/CustomNavbar";
 import CustomToolMenu from "@/custom-studio-components/CustomToolMenu";
 // import { theme } from "https://themer.sanity.build/api/hues?default=9e7f66;lightest:e7e7ee&primary=9e7f66&transparent=9e7f66&positive=lightest:fff;darkest:101112&caution=lightest:fff;darkest:101112&critical=lightest:fff;darkest:101112&lightest=e7e7e7&darkest=111111";
-import { BookIcon } from "@sanity/icons";
 import { theme } from "./sanity/theme";
 
 export default defineConfig({

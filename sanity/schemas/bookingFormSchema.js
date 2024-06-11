@@ -1,5 +1,5 @@
 import { defineField, defineType } from "sanity";
-import { BookIcon } from "@sanity/icons";
+import IconBook from "/public/assets/icons/icon-book.svg"
 
 const bookingFormSchema = defineType({
   name: "bookings",
@@ -36,7 +36,7 @@ const bookingFormSchema = defineType({
       return {
         title,
         subtitle,
-        media: BookIcon,
+        media: IconBook,
       };
     },
   },
