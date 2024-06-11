@@ -40,9 +40,8 @@ Users are be able to:
 
 ### Links
 
-(Links to be added)
-- Solution URL: [Add solution URL here](https://your-solution-url.com)
-- Live Site URL: [Add live site URL here](https://your-live-site-url.com)
+- Solution URL: [Frontend Mentor Solution Page](https://www.frontendmentor.io/solutions/dine-restauranttwo-page-website-built-with-nextjs-sanity-tailwind-MsPfi2ldrN)
+- Live Site URL: [Dine Restaurant](https://dine-restaurant-fm.vercel.app)
 
 ## My process
 
